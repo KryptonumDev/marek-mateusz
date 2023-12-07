@@ -238,19 +238,6 @@ html.lenis {
   pointer-events: none;
 }
 
-.unorderedList {
-  display: grid;
-  gap: clamp(8px, calc(12vw/7.68), 16px);
-  li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px;
-    svg {
-      width: clamp(24px, calc(28vw/7.68), 30px);
-      height: clamp(24px, calc(28vw/7.68), 30px);
-    }
-    span {
-      margin-top: .15em;
-    }
-  }
+.orderedList, .unorderedList {
+  padding-left: 1rem;
 }

@@ -1,25 +1,21 @@
 import ReactMarkdown from 'react-markdown';
-import { renderToPipeableStream } from 'react-dom/server';
-import { Writable } from 'stream';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 const SchemaFaq = ({ data }) => {
   const schama = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": data.map(({ question, answer }) => {
-      const questionStream = renderToStaticMarkup(<ReactMarkdown>{question}</ReactMarkdown>);
-      const answerStream = renderToStaticMarkup(<ReactMarkdown>{answer}</ReactMarkdown>);
       return {
         "@type": "Question",
-        "name": questionStream,
+        "name": renderToStaticMarkup(<ReactMarkdown>{question}</ReactMarkdown>),
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": answerStream,
+          "text": renderToStaticMarkup(<ReactMarkdown>{answer}</ReactMarkdown>)
         }
       };
     })
-  };
-
+  }
   return (
     <script
       type="application/ld+json"
@@ -27,22 +23,5 @@ const SchemaFaq = ({ data }) => {
     />
   );
 };
-
-function renderToStaticMarkup(element) {
-  return new Promise((resolve, reject) => {
-    const { pipe } = renderToPipeableStream(element);
-
-    const writableStream = new Writable({
-      write(chunk, encoding, callback) {
-        resolve(chunk.toString());
-        callback();
-      },
-    });
-
-    writableStream.on('error', reject);
-
-    pipe(writableStream);
-  });
-}
 
 export default SchemaFaq;

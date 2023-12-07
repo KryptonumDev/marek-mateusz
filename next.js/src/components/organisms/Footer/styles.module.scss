@@ -1,89 +1,29 @@
 .wrapper {
-  --link-color: var(--primary-50);
-  background-color: var(--primary-500);
-  color: var(--background-50);
-  padding: clamp(28px, calc(64vw/7.68), 64px) 0;
-  padding-bottom: 64px;
-  .column {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 48px clamp(32px, calc(48vw/7.68), 48px);
-    .about {
-      display: grid;
-      gap: clamp(16px, calc(24vw/7.68), 32px);
-      max-width: calc(325rem/16);
-      align-items: flex-start;
-      .logo {
-        display: block;
-        width: clamp(92px, calc(158vw/7.68), 226px);
-        svg {
-          width: 100%;
-        }
-      }
-      .socials {
-        list-style-type: none;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 24px;
-        margin-top: clamp(16px, calc(24vw/7.68), 32px);
-        a {
-          display: block;
-        }
+  margin-bottom: clamp(68px, calc(72vw/7.68), 78px);
+  > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px 32px;
+    @media (max-width: 699px){
+      justify-content: center;
+      p {
+        justify-content: center;
+        width: 100%;
+        order: 2;
       }
     }
-    .nav {
-      margin: -16px 0;
+  }
+  p {
+    color: var(--secondary-600);
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    a {
+      transition: opacity .5s;
       &:hover {
-        a {
-          opacity: .62;
-          &:hover {
-            opacity: 1;
-          }
-        }
-      }
-      a {
-        display: block;
-        padding: 16px 0;
-        transition: opacity .4s;
-      }
-    }
-    .company {
-      display: grid;
-      gap: 48px;
-      .name {
-        color: var(--background-500);
-      }
-      p:not(:last-child){
-        margin-bottom: 8px;
-      }
-    }
-  }
-  .legal {
-    margin-top: clamp(48px, calc(48vw/7.68), 82px);
-    &,
-    > div {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-    }
-    gap: 24px 48px;
-    > div {
-      gap: 12px 24px;
-    }
-    svg {
-      display: inline;
-      height: 1em;
-      vertical-align: middle;
-    }
-  }
-  @media (max-width: 899px){
-    .column {
-      grid-template-columns: 1fr 1fr;
-      .about {
-        grid-column: 3/1;
-        grid-template-columns: 1fr 2fr;
-        max-width: unset;
+        opacity: .62;
       }
     }
   }

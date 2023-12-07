@@ -39,6 +39,7 @@
             }
           }
           span {
+            white-space: nowrap;
             transition: transform .8s var(--easing);
             &:nth-child(1){
               font-family: var(--cinzel-decorative);

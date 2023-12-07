@@ -1,31 +1,36 @@
 import '@/global/global.scss'
 import localFont from 'next/font/local'
-import Nav from '@/components/organisms/Nav'
+import Header from 'src/componenets/organisms/Header'
 import Footer from '@/components/organisms/Footer'
 import SmoothScroll from '@/utils/SmoothScroll'
 import SchemaOrganization from '@/global/Schema/Organization'
 import { locale } from '@/global/Seo'
 
-const Oranienbaum = localFont({
+const Raleway = localFont({
   src: [
     {
-      path: '../assets/fonts/Oranienbaum-Regular.woff2',
+      path: '../assets/fonts/Raleway-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
+    {
+      path: '../assets/fonts/Raleway-RegularItalic.woff2',
+      weight: '400',
+      style: 'italic',
+    },
   ],
-  fallback: ['serif']
-})
-
-const Kapakana = localFont({
-  src: '../assets/fonts/Kapakana.woff2',
+  fallback: ['serif'],
   display: 'swap',
-  variable: '--kapakana-font',
-  fallback: ["sans-serif"]
+})
+const CinzelDecorative = localFont({
+  src: '../assets/fonts/CinzelDecorative-Regular.woff2',
+  fallback: ['sans-serif'],
+  display: 'swap',
+  variable: '--cinzel-decorative',
 })
 
 export const viewport = {
-  // themeColor: '#FBF7F6',
+  themeColor: '#1D1E1D',
 }
 
 // export const runtime = 'edge'
@@ -36,8 +41,8 @@ export default function RootLayout({ children }) {
       <head>
         <SchemaOrganization />
       </head>
-      <body className={`${Oranienbaum.className} ${Kapakana.variable}`}>
-        <Nav />
+      <body className={`${Raleway.className} ${CinzelDecorative.variable}`}>
+        <Header />
         <SmoothScroll>
           <main id="main">
             {children}

@@ -1,0 +1,17 @@
+.wrapper {
+  
+}
+
+.skipToMainContent {
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  left: 13px;
+  top: 13px;
+  overflow: hidden;
+  &:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

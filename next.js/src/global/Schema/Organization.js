@@ -3,17 +3,18 @@ import React from 'react';
 import { domain } from '../Seo';
 
 const SchemaOrganization = async () => {
-  const {
-    page: {
-      seo
-    },
-    global: {
-      instagram,
-      facebook,
-      email,
-      phone,
-    }
-  } = await query();
+  // const {
+  //   page: {
+  //     seo
+  //   },
+  //   global: {
+  //     instagram,
+  //     facebook,
+  //     email,
+  //     phone,
+  //   }
+  // } = await query();
+  return;
   
   return (
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
@@ -58,23 +59,23 @@ const SchemaOrganization = async () => {
 
 export default SchemaOrganization;
 
-const query = async () => {
-  const { body: { data } } = await fetchData(`
-    query {
-      page: IndexPage(id: "indexPage") {
-          # SEO
-        seo {
-          title
-          description
-        }
-      }
-      global: Global(id: "global") {
-        email
-        phone
-        instagram
-        facebook
-      }
-    }
-  `)
-  return data;
-}
+// const query = async () => {
+//   const { body: { data } } = await fetchData(`
+//     query {
+//       page: IndexPage(id: "indexPage") {
+//           # SEO
+//         seo {
+//           title
+//           description
+//         }
+//       }
+//       global: Global(id: "global") {
+//         email
+//         phone
+//         instagram
+//         facebook
+//       }
+//     }
+//   `)
+//   return data;
+// }

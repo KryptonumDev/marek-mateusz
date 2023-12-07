@@ -1,10 +1,10 @@
 import '@/global/global.scss'
-import localFont from 'next/font/local'
-import Header from 'src/componenets/organisms/Header'
-import Footer from '@/components/organisms/Footer'
-import SmoothScroll from '@/utils/SmoothScroll'
-import SchemaOrganization from '@/global/Schema/Organization'
 import { locale } from '@/global/Seo'
+import localFont from 'next/font/local'
+import SchemaOrganization from '@/global/Schema/Organization'
+import SmoothScroll from '@/utils/SmoothScroll'
+import Header from '@/components/organisms/Header'
+import Footer from '@/components/organisms/Footer'
 
 const Raleway = localFont({
   src: [

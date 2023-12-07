@@ -10,7 +10,7 @@ const fetchData = async (query, variables) => {
         ...(variables && { variables })
       }),
       next: {
-        revalidate: 3600,
+        revalidate: 900,
       },
     });
 

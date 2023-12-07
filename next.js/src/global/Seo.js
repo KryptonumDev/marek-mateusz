@@ -46,19 +46,19 @@ const Seo = async ({ title, description, path, ...props }) => {
 
 export default Seo;
 
-// const query = async () => {
-//   const { body: { data } } = await fetchData(`
-//     query {
-//       global: Global(id: "global") {
-//         seo {
-//           og_Img {
-//             asset {
-//               url
-//             }
-//           }
-//         }
-//       }
-//     }
-//   `)
-//   return data;
-// }
+const query = async () => {
+  const { body: { data } } = await fetchData(`
+    query {
+      global: Global(id: "global") {
+        seo {
+          og_Img {
+            asset {
+              url
+            }
+          }
+        }
+      }
+    }
+  `)
+  return data;
+}

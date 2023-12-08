@@ -1,37 +1,37 @@
 import removeMarkdown from "../../utils/removeMarkdown"
 
 export default {
-  name: "Faq",
-  title: "FAQ",
+  name: "TextSection",
+  title: "Text Section",
   type: "object",
   fields: [
     {
       name: 'heading',
       type: 'markdown',
-      title: 'Heading',
+      title: 'Nagłówek',
       validation: Rule => Rule.required()
     },
     {
-      name: 'list',
-      type: 'array',
-      of: [
-        {
-          type: 'list_TitleAndDescription'
-        }
-      ],
-      title: 'List',
+      name: 'paragraph',
+      type: 'markdown',
+      title: 'Paragraf',
       validation: Rule => Rule.required()
+    },
+    {
+      name: 'cta',
+      type: 'cta',
+      title: 'CTA',
     },
   ],
   preview: {
     select: {
       heading: 'heading',
-      list: 'list',
+      paragraph: 'paragraph',
     },
-    prepare({ heading, list }) {
+    prepare({ heading, paragraph }) {
       return {
         title: removeMarkdown(heading),
-        subtitle: `${list.length} items`,
+        paragraph: removeMarkdown(paragraph),
       }
     }
   }

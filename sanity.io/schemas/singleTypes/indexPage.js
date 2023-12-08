@@ -1,5 +1,5 @@
 export default {
-  name: 'indexPage',
+  name: 'IndexPage',
   title: 'Homepage',
   type: 'document',
   icon: () => '⭐️',
@@ -9,6 +9,28 @@ export default {
       type: 'markdown',
       title: 'Heading',
       fieldset: 'hero',
+    },
+    {
+      name: 'callout',
+      title: 'Wyróżniona sekcja',
+      type: 'TextSection',
+      options: { collapsible: true, collapsed: true }
+    },
+    {
+      name: 'textSection',
+      title: 'Kolumna z tekstem',
+      type: 'TextSection',
+      options: { collapsible: true, collapsed: true }
+    },
+    {
+      name: 'contactForm',
+      type: 'ContactForm',
+      options: { collapsible: true, collapsed: true }
+    },
+    {
+      name: 'faq',
+      type: 'Faq',
+      options: { collapsible: true, collapsed: true }
     },
     {
       name: 'seo',

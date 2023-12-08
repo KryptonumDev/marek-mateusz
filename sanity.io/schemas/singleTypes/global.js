@@ -16,13 +16,13 @@ export default {
       title: 'Phone number',
     },
     {
-      type: 'string',
+      type: 'url',
       name: 'instagram',
       title: 'Instagram',
       fieldset: 'social',
     },
     {
-      type: 'string',
+      type: 'url',
       name: 'facebook',
       title: 'Facebook',
       fieldset: 'social',

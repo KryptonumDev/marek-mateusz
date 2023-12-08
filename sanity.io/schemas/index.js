@@ -1,9 +1,9 @@
 // Single Types
 import global, { global_Seo } from './singleTypes/global'
-import indexPage from './singleTypes/indexPage'
+import IndexPage from './singleTypes/indexPage'
 
 export const singleTypes = [
-  indexPage,
+  IndexPage,
 ]
 
 // Collection Types
@@ -17,6 +17,8 @@ import cta from './components/cta'
 import seo from './components/seo'
 import { titleAndDescription, titleAndImage, imageAndLink, titleDescriptionAndImage } from './components/list'
 import Faq from './components/Faq'
+import ContactForm from './components/ContactForm'
+import TextSection from './components/TextSection'
 
 export const components = [
   global_Seo,
@@ -27,6 +29,8 @@ export const components = [
   imageAndLink,
   titleDescriptionAndImage,
   Faq,
+  ContactForm,
+  TextSection,
 ]
 
 export const schemaTypes = [

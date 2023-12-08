@@ -1,0 +1,100 @@
+.wrapper {
+  header {
+    max-width: calc(587rem/16);
+    margin: 0 auto clamp(48px, calc(80vw/7.68), 80px);
+    text-align: center;
+    h2 {
+      margin-bottom: clamp(20px, calc(28vw/7.68), 28px);
+    }
+  }
+  position: relative;
+  .decoration1,
+  .decoration2 {
+    position: absolute;
+    width: clamp(130px, calc(160vw/7.68), 320px);
+  }
+  .decoration1 {
+    left: 0;
+    bottom: 0;
+    margin-left: calc(var(--pageMargin) * -1);
+    @media (min-width: 1280px){
+      margin-left: calc((100vw - 1200px) / -2);
+    }
+    @media (max-width: 899px){
+      transform: translateY(115%);
+    }
+  }
+  .decoration2 {
+    right: 0;
+    top: 0;
+    margin-right: calc(var(--pageMargin) * -1);
+    @media (min-width: 1280px){
+      margin-right: calc((100vw - 1200px) / -2);
+    }
+    @media (max-width: 899px){
+      transform: translateY(-115%);
+    }
+  }
+
+  // FORM
+  .form {
+    display: grid;
+    gap: clamp(28px, calc(32vw/7.68), 36px);
+    max-width: clamp(450px, calc(450vw/7.68), 587px);
+    margin: 0 auto;
+    .topic {
+      > p {
+        margin-bottom: 20px;
+      }
+      > div {
+        display: grid;
+        gap: clamp(8px, calc(12vw/7.68), 16px);
+        grid-template-columns: repeat(5, 1fr);
+        @media (max-width: 999px){
+          grid-template-columns: repeat(4, 1fr);
+        }
+        @media (max-width: 499px){
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .painting {
+          input {
+            position: fixed;
+            opacity: 0;
+          }
+          cursor: pointer;
+          border: 1px solid rgba(255,255,255,0);
+          transition: border-color .5s var(--easing);
+          &:has(input:checked){
+            border-color: var(--secondary-500);
+          }
+          &:hover {
+            border-color: var(--secondary-800);
+          }
+          &[aria-invalid="true"]{
+            border-color: var(--error-400);
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+  .socials {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    a {
+      transition: opacity .5s var(--easing);
+      &:hover,
+      &:focus-visible {
+        opacity: .62;
+      }
+      display: block;
+      padding: 8px;
+    }
+  }
+}

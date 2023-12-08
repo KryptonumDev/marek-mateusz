@@ -1,37 +1,45 @@
 .wrapper {
   > p {
-    margin: 0 0 2px 8px;
+    margin: 0 0 2px 1px;
+    color: var(--secondary-600);
     > em {
       color: var(--secondary-700); 
       font-size: .8em;
       font-style: normal;
     }
   }
-  &[aria-invalid="true"]{
-    color: var(--danger-500);
-    input,
-    textarea {
-      border-color: var(--danger-500);
-    }
-  }
+  transition: color .5s var(--easing);
   input {
     width: 100%;
-    padding: 8px;
-    height: 32px;
+    padding: 8px 4px;
+    height: 34px;
     border-bottom: 1px solid var(--secondary-900);
-    transition: border-color .8s var(--easing);
+    transition: border-color .5s var(--easing);
     &:focus-visible {
       outline: 0;
+    }
+    &:hover {
+      border-color: var(--secondary-400);
     }
   }
   textarea {
     resize: none;
     width: 100%;
-    padding: 8px;
+    padding: 8px 4px;
     border-bottom: 1px solid var(--secondary-900);
-    transition: border-color .8s var(--easing);
+    transition: border-color .5s var(--easing);
     &:focus-visible {
       outline: 0;
+    }
+    &:hover {
+      border-color: var(--secondary-400);
+    }
+  }
+  &[aria-invalid="true"]{
+    color: var(--error-400);
+    input,
+    textarea {
+      border-color: var(--error-400);
     }
   }
 }

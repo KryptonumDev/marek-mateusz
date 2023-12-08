@@ -3,18 +3,17 @@ import React from 'react';
 import { domain } from '../Seo';
 
 const SchemaOrganization = async () => {
-  // const {
-  //   page: {
-  //     seo
-  //   },
-  //   global: {
-  //     instagram,
-  //     facebook,
-  //     email,
-  //     phone,
-  //   }
-  // } = await query();
-  return;
+  const {
+    page: {
+      seo
+    },
+    global: {
+      instagram,
+      facebook,
+      email,
+      phone,
+    }
+  } = await query();
   
   return (
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html:
@@ -23,25 +22,25 @@ const SchemaOrganization = async () => {
         "@type": "Organization",
         "name": seo?.title,
         "url": `${domain}`,
-        "email": email,
-        "telephone": phone || undefined,
+        "email": email || '',
+        "telephone": phone || '',
         "logo": `${domain}/marek-mateusz-logo.png`,
         "image": `${domain}/marek-mateusz-logo.png`,
         "description": seo?.description,
-        // "OpeningHoursSpecification": {
-        //   "@type": "OpeningHoursSpecification",
-        //   "dayOfWeek": [
-        //     "Monday",
-        //     "Tuesday",
-        //     "Wednesday",
-        //     "Thursday",
-        //     "Friday",
-        //     "Saturday",
-        //     "Sunday"
-        //   ],
-        //   "opens": "00:00",
-        //   "closes": "00:00"
-        // },
+        "OpeningHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "00:00"
+        },
         "contactPoint": [
           {
             "@type": "ContactPoint",
@@ -59,23 +58,22 @@ const SchemaOrganization = async () => {
 
 export default SchemaOrganization;
 
-// const query = async () => {
-//   const { body: { data } } = await fetchData(`
-//     query {
-//       page: IndexPage(id: "indexPage") {
-//           # SEO
-//         seo {
-//           title
-//           description
-//         }
-//       }
-//       global: Global(id: "global") {
-//         email
-//         phone
-//         instagram
-//         facebook
-//       }
-//     }
-//   `)
-//   return data;
-// }
+const query = async () => {
+  const { body: { data } } = await fetchData(/* GraphQL */`
+    query {
+      page: IndexPage(id: "IndexPage") {
+        seo {
+          title
+          description
+        }
+      }
+      global: Global(id: "global") {
+        email
+        phone
+        instagram
+        facebook
+      }
+    }
+  `)
+  return data;
+}

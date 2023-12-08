@@ -35,6 +35,9 @@
       }
     }
   }
+  &:has(input:checked){
+    border-color: var(--secondary-600);
+  }
   svg {
     stroke-dasharray: 16;
     stroke-dashoffset: -16;

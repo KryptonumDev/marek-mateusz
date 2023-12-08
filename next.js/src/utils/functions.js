@@ -124,14 +124,9 @@ export const phoneValidation = (e) => {
     e.key === 'Delete' ||
     e.key === 'Enter' ||
     e.key === 'Tab'
-  ) {
-    return;
-  }
+  ) return
   const allowedCharactersPattern = /[0-9()_+\-\s]/;
-  const pressedKey = e.key;
-  if (!allowedCharactersPattern.test(pressedKey)) {
-    e.preventDefault();
-  }
+  !allowedCharactersPattern.test(e.key) && e.preventDefault()
 }
 
 export const prettyfyDate = (date) => {

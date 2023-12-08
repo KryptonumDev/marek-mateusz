@@ -172,7 +172,7 @@ h1, .h1, h2, .h2 {
       animation: link .8s;
     }
     &::after {
-      transform: translate(5px, -5px);  
+      transform: translate(3px, -3px);  
     }
   }
   @keyframes link {

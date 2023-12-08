@@ -17,7 +17,7 @@ const Input = ({
       {textarea ? (
         <textarea
           data-lenis-prevent
-          rows={3}
+          rows={2}
           {...register}
           name={register.name}
           {...props}

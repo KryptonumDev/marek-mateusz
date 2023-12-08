@@ -8,6 +8,7 @@
   position: relative;
   padding: 11px 80px;
   text-align: center;
+  z-index: 2;
   @media (max-width: 499px) {
     padding: 11px 24px;
     width: 100%;

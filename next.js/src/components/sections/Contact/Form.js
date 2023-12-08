@@ -14,7 +14,8 @@ import Img from '@/components/atoms/Img';
 import Error from '@/components/atoms/Error';
 
 const Form = ({
-  socials
+  socials,
+  phone
 }) => {
   const [status, setStatus] = useState({ sending: false });
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: 'all' });
@@ -139,7 +140,7 @@ const Form = ({
       {status.success !== undefined && (
         <div className={styles.state} aria-invalid={!status.success}>
           {status.success ? <Status.Success /> : <Status.Error />}
-          <h3>{status.success ? "DZIĘKUJEMY!" : "WYSTĄPIŁ PROBLEM"}</h3>
+          <h3 className='h2'>{status.success ? "DZIĘKUJEMY!" : "WYSTĄPIŁ PROBLEM"}</h3>
           <p className={styles.paragraph}>{
             status.success
             ? "Właśnie dotarła do nas Twoja wiadomość. Postaramy się jak najszybciej na nią odpowiedzieć. W między czasie zapraszamy Cię do śledzenia nas na social media."
@@ -163,10 +164,13 @@ const Form = ({
               </ul>
             )
           ) : (
-            <Button
-              type="button"
-              onClick={() => setStatus({ sending: false, success: undefined })}
-            >Spróbuj ponownie</Button>
+            <>
+              <Button
+                type="button"
+                onClick={() => setStatus({ sending: false, success: undefined })}
+              >Spróbuj ponownie</Button>
+              {phone}
+            </>
           )}
         </div>
       )}

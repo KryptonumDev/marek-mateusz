@@ -3,11 +3,13 @@ import fetchData from "@/utils/fetchData";
 import Breadcrumbs from "@/components/moleculas/Breadcrumbs";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
+import Callout from "@/components/sections/Callout";
 
 const pathname = '';
 
 const IndexPage = async () => {
   const { page: {
+    callout,
     contactForm,
     faq,
   } } = await query();
@@ -17,6 +19,7 @@ const IndexPage = async () => {
       <Breadcrumbs data={[
         { name: 'Homepage', path: pathname },
       ]} visible={false} />
+      <Callout {...callout} />
       <Contact {...contactForm} />
       <Faq data={faq} />
     </>
@@ -36,6 +39,17 @@ const query = async () => {
   const { body: { data } } = await fetchData(/* GraphQL */`
     query {
       page: IndexPage(id: "IndexPage") {
+        # Callout
+        callout {
+          heading
+          paragraph
+          cta {
+            theme
+            text
+            href
+          }
+        }
+
         # ContactForm
         contactForm {
           heading

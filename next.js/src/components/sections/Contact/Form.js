@@ -108,7 +108,7 @@ const Form = ({
         <Error error={errors['subject']} />
       </div>
       <Input
-        label="Wiadomość <em>(opcjonalnie)</em>"
+        label="Treść wiadomości <em>(opcjonalnie)</em>"
         textarea={true}
         register={register('message')}
         errors={errors}

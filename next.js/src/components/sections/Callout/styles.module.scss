@@ -1,0 +1,12 @@
+.wrapper {
+  background-color: var(--primary-700);
+  padding: clamp(64px, calc(96vw/7.68), 180px) 0;
+  header {
+    max-width: calc(794rem/16);
+    margin: 0 auto;
+    text-align: center;
+    .paragraph {
+      margin: clamp(20px, calc(28vw/7.68), 28px) 0 clamp(28px, calc(36vw/7.68), 36px);
+    }
+  }
+}

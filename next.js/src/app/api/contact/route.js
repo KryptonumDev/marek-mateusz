@@ -24,8 +24,7 @@ export async function POST(request) {
     return NextResponse.json({ success: false }, { status: 422, headers })
   }
 
-  const body = `
-    <p>Imię i nazwisko: <b>${name}</b></p>
+  const body = `<p>Imię i nazwisko: <b>${name}</b></p>
     <p>E-mail: <b>${email}</b></p>
     <p>Numer telefonu: <b>${phone || 'Nie podano'}</b></p>
     <p>Temat wiadomości: <b>${subject || 'Nie podano'}</b></p>

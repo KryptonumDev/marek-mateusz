@@ -1,0 +1,23 @@
+.wrapper {
+  display: grid;
+  gap: clamp(24px, calc(36vw/7.68), 36px) 32px;
+  @media (min-width: 900px){
+    grid-template-columns: 1fr 1fr;
+  }
+  header {
+    max-width: calc(480rem/16);
+  }
+  @media (min-width: 600px) and (max-width: 899px) {
+    > div {
+      margin-left: 25%;
+    }
+  }
+  .paragraph {
+    > *:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+  .cta {
+    margin-top: clamp(24px, calc(32vw/7.68), 32px);
+  }
+}

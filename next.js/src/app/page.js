@@ -4,12 +4,14 @@ import Breadcrumbs from "@/components/moleculas/Breadcrumbs";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Callout from "@/components/sections/Callout";
+import TextSection from "@/components/sections/TextSection";
 
 const pathname = '';
 
 const IndexPage = async () => {
   const { page: {
     callout,
+    textSection,
     contactForm,
     faq,
   } } = await query();
@@ -20,6 +22,7 @@ const IndexPage = async () => {
         { name: 'Homepage', path: pathname },
       ]} visible={false} />
       <Callout {...callout} />
+      <TextSection {...textSection} />
       <Contact {...contactForm} />
       <Faq data={faq} />
     </>
@@ -41,6 +44,17 @@ const query = async () => {
       page: IndexPage(id: "IndexPage") {
         # Callout
         callout {
+          heading
+          paragraph
+          cta {
+            theme
+            text
+            href
+          }
+        }
+
+        # TextSection
+        textSection {
           heading
           paragraph
           cta {

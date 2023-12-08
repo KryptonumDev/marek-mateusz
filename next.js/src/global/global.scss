@@ -157,6 +157,7 @@ p {
 .link {
   position: relative;
   text-wrap: nowrap;
+  font-style: italic;
   &[target='_blank']::after {
     content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14" ><path stroke="%23E7CFA2" strokeLinecap="square" d="M4.513.986c2.18 2.18 6.054 2.43 8.245.24m0 0L1.444 12.539M12.758 1.226c-2.19 2.19-1.941 6.064.24 8.245" ></path></svg>');
     display: inline-block;

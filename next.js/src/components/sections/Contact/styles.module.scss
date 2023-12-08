@@ -21,7 +21,7 @@
       margin-left: calc((100vw - 1200px) / -2);
     }
     @media (max-width: 899px){
-      transform: translateY(115%);
+      transform: translateY(110%);
     }
   }
   .decoration2 {
@@ -32,7 +32,7 @@
       margin-right: calc((100vw - 1200px) / -2);
     }
     @media (max-width: 899px){
-      transform: translateY(-115%);
+      transform: translateY(-100%);
     }
   }
 }

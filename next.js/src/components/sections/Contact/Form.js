@@ -78,6 +78,7 @@ const Form = ({
           <label
             className={styles.painting}
             aria-invalid={Boolean(errors['subject'])}
+            aria-label="Obraz1"
           >
             <input
               type="radio"

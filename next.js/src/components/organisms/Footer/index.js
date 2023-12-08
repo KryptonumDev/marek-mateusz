@@ -7,7 +7,7 @@ const Footer = async () => {
       <div className="max-width">
         <p>
           <span>Ⓒ Stworzone przez</span>
-          <a href="https://kryptonum.eu/pl">
+          <a href="https://kryptonum.eu/pl" aria-label="Kryptonum">
             <KryptonumLogo />
           </a>
         </p>

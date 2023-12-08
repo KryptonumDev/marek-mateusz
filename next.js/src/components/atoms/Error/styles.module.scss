@@ -1,0 +1,16 @@
+.error {
+  margin-left: 8px;
+  font-size: clamp(calc(14rem/16), calc(14vw/7.68), calc(16rem/16));
+  color: var(--error-400);
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  line-height: inherit;
+  overflow: hidden;
+  svg {
+    flex-shrink: 0;
+    width: clamp(12px, calc(14vw/7.68), 16px);
+    height: clamp(12px, calc(14vw/7.68), 16px);
+    margin-top: clamp(0px, calc(2vw/7.68), 4px);
+  }
+}

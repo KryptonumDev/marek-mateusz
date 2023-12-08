@@ -2,14 +2,16 @@
   position: sticky;
   z-index: 9;
   top: clamp(18px, calc(28vw/7.68), 28px);
-  padding: 8px 0;
-  backdrop-filter: blur(8px);
   > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   .logo {
+    border-radius: 13px;
+    padding: 8px 13px;
+    margin: 0 -13px;
+    backdrop-filter: blur(8px);
     svg {
       width: clamp(118px, calc(141vw/7.68), 141px);
     }
@@ -62,6 +64,14 @@
         display: block;
         padding: 8px;
       }
+    }
+  }
+  @media (min-width: 900px){
+    nav {
+      padding: 8px 21px;
+      margin: 0 -21px;
+      backdrop-filter: blur(8px);
+      border-radius: 21px;
     }
   }
   @media (max-width: 899px){

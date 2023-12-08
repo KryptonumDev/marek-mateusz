@@ -56,7 +56,7 @@ const Form = ({
       />
       <Input
         label="E-mail"
-        type="text"
+        type="email"
         register={register('email', {
           required: { value: true, message: `E-mail jest wymagany` },
           pattern: { value: regex.email, message: `Niepoprawny adres e-mail` }
@@ -65,6 +65,7 @@ const Form = ({
       />
       <Input
         label="Telefon <em>(opcjonalnie)</em>"
+        type="tel"
         register={register('phone', {
           pattern: { value: regex.phone, message: `Niepoprawny numer telefonu` },
         })}

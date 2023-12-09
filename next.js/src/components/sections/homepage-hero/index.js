@@ -7,6 +7,14 @@ const speedMapping = [
   .35, .15, .25, .5, .5, .15, .25, .5, .1, .25
 ]
 
+const sizes = (i) => (
+  i % 10 === 0 || i % 10 === 2 || i % 10 === 6 || i % 10 === 8
+  ? '(max-width: 768px) 214px, 381px'
+    : i % 10 === 1 || i % 10 === 5
+  ? '(max-width: 768px) 271px, 482px'
+    : '(max-width: 768px) 156px, 277px'
+)
+
 const Hero = ({
   heading,
   paragraph,
@@ -28,7 +36,11 @@ const Hero = ({
             data-scroll
             data-scroll-speed={speedMapping[i % speedMapping.length]}
           >
-            <Img data={img} priority={[0,1].includes(i)} />
+            <Img
+              data={img}
+              priority={[0,1].includes(i)}
+              sizes={sizes(i)}
+            />
             <p className={styles.availability} data-available={availability}>{availability ? 'Dostępny' : 'Niedostępny'}</p>
             <div className={styles.info}>
               <p>{year}</p>

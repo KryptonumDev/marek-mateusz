@@ -34,7 +34,7 @@
   justify-content: space-between;
   justify-items: end;
   align-items: flex-end;
-  gap: clamp(16px, calc(24vw/7.68), 32px);
+  gap: clamp(24px, calc(32vw/7.68), 32px);
   .item {
     position: relative;
     .info {

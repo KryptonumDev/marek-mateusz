@@ -5,7 +5,9 @@ const SmoothScroll = ({ children }) => {
   useEffect(() => {
     (async () => {
       const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      new LocomotiveScroll();
+      new LocomotiveScroll({
+        smooth: true
+      });
     })();
   }, []);
   return children;

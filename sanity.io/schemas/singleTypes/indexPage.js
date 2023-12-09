@@ -7,13 +7,46 @@ export default {
     {
       name: 'hero_Heading',
       type: 'markdown',
-      title: 'Heading',
+      title: 'Nagłówek',
       fieldset: 'hero',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'hero_Paragraph',
+      type: 'markdown',
+      title: 'Paragraf',
+      fieldset: 'hero',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'hero_Cta',
+      type: 'cta',
+      title: 'CTA',
+      fieldset: 'hero',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'paintings',
+      type: 'array',
+      of: [
+        {
+          type: 'Painting'
+        }
+      ],
+      title: 'Galeria',
+      fieldset: 'hero',
+      validation: Rule => Rule.required(),
     },
     {
       name: 'callout',
       title: 'Wyróżniona sekcja',
       type: 'TextSection',
+      options: { collapsible: true, collapsed: true }
+    },
+    {
+      name: 'murals',
+      title: 'Murale',
+      type: 'ShowcaseSlider',
       options: { collapsible: true, collapsed: true }
     },
     {

@@ -19,6 +19,8 @@ import { titleAndDescription, titleAndImage, imageAndLink, titleDescriptionAndIm
 import Faq from './components/Faq'
 import ContactForm from './components/ContactForm'
 import TextSection from './components/TextSection'
+import Painting from './components/Painting'
+import ShowcaseSlider from './components/ShowcaseSlider'
 
 export const components = [
   global_Seo,
@@ -31,6 +33,8 @@ export const components = [
   Faq,
   ContactForm,
   TextSection,
+  Painting,
+  ShowcaseSlider,
 ]
 
 export const schemaTypes = [

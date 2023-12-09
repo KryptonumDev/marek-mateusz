@@ -5,11 +5,16 @@ import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import Callout from "@/components/sections/Callout";
 import TextSection from "@/components/sections/TextSection";
+import Hero from "@/components/sections/homepage-hero";
 
 const pathname = '';
 
 const IndexPage = async () => {
   const { page: {
+    hero_Heading,
+    hero_Paragraph,
+    hero_Cta,
+    paintings,
     callout,
     textSection,
     contactForm,
@@ -21,6 +26,14 @@ const IndexPage = async () => {
       <Breadcrumbs data={[
         { name: 'Homepage', path: pathname },
       ]} visible={false} />
+      <Hero
+        {...{
+          heading: hero_Heading,
+          paragraph: hero_Paragraph,
+          cta: hero_Cta,
+          paintings,
+        }}
+      />
       <Callout {...callout} />
       <TextSection {...textSection} />
       <Contact {...contactForm} />
@@ -42,6 +55,34 @@ const query = async () => {
   const { body: { data } } = await fetchData(/* GraphQL */`
     query {
       page: IndexPage(id: "IndexPage") {
+        # Hero
+        hero_Heading
+        hero_Paragraph
+        hero_Cta {
+          theme
+          text
+          href
+        }
+        paintings {
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  width
+                  height
+                }
+              }
+            }
+          }
+          year
+          type
+          title
+          availability
+        }
+
         # Callout
         callout {
           heading

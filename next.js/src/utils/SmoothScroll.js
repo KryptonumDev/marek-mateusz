@@ -1,16 +1,13 @@
 'use client'
 import { useEffect } from 'react';
-import Lenis from '@studio-freight/lenis';
 
 const SmoothScroll = ({ children }) => {
   useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, [])
+    (async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default;
+      new LocomotiveScroll();
+    })();
+  }, []);
   return children;
 };
 

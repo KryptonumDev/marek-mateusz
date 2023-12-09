@@ -31,7 +31,7 @@
     opacity: 0;
     &:checked {
       + svg {
-        stroke-dashoffset: 0
+        stroke-dashoffset: 32;
       }
     }
   }
@@ -40,7 +40,7 @@
   }
   svg {
     stroke-dasharray: 16;
-    stroke-dashoffset: -16;
+    stroke-dashoffset: 16;
     transition: stroke-dashoffset .8s var(--easing);
   }
 }

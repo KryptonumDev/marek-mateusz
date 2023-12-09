@@ -32,7 +32,7 @@ const Contact = async ({
   );
 
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id="kontakt">
       <header>
         <Markdown.h2>{heading}</Markdown.h2>
         <Markdown>{paragraph}</Markdown>

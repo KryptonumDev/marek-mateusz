@@ -9,9 +9,9 @@
     "lint": "next lint --fix --dir src"
   },
   "dependencies": {
-    "@studio-freight/lenis": "^1.0.29",
     "framer-motion": "^10.16.15",
-    "next": "14.0.3",
+    "locomotive-scroll": "beta",
+    "next": "latest",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.48.2",

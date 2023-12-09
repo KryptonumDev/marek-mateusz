@@ -1,7 +1,7 @@
 import React from "react"
 import NextImage from "next/image"
 
-const defaultPlaceholder = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/v7NfwAJigPTkfv+7gAAAABJRU5ErkJggg==";
+const defaultPlaceholder = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkcGqsBwACUQFEhuqmbQAAAABJRU5ErkJggg==";
 
 const Img = ({
   data,

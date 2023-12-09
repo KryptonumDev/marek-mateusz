@@ -8,11 +8,10 @@ const Contact = async ({
   heading,
   paragraph
 }) => {
-  const { global: {
-    instagram,
-    facebook,
-    phoneNumber,
-  } } = await query();
+  const {
+    global: { instagram, facebook, phoneNumber },
+    IndexPage: { paintings }
+  } = await query();
   const createSocial = (name, url, icon) => (url ? { name, url, icon } : null);
   const socials = [
     createSocial('Instagram', instagram, <Social.Instagram />),
@@ -37,7 +36,7 @@ const Contact = async ({
         <Markdown.h2>{heading}</Markdown.h2>
         <Markdown>{paragraph}</Markdown>
       </header>
-      <Form socials={socials} phone={phone} />
+      <Form socials={socials} phone={phone} paintings={paintings} />
       <Decoration1 className={styles.decoration1} />
       <Decoration2 className={styles.decoration2} />
     </section>
@@ -53,6 +52,24 @@ const query = async () => {
         instagram
         facebook
         phoneNumber: phone
+      }
+      IndexPage: IndexPage(id: "IndexPage") {
+        paintings {
+          img {
+            asset {
+              altText
+              url
+              metadata {
+                lqip
+                dimensions {
+                  width
+                  height
+                }
+              }
+            }
+          }
+          title
+        }
       }
     }
   `)

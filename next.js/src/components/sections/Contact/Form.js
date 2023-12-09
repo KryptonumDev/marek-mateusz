@@ -15,7 +15,8 @@ import Error from '@/components/atoms/Error';
 
 const Form = ({
   socials,
-  phone
+  phone,
+  paintings
 }) => {
   const [status, setStatus] = useState({ sending: false });
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: 'all' });
@@ -75,21 +76,28 @@ const Form = ({
       <div className={styles.topic}>
         <p>Wskaż temat wiadomości</p>
         <div>
-          <label
-            className={styles.painting}
-            aria-invalid={Boolean(errors['subject'])}
-            aria-label="Obraz1"
-          >
-            <input
-              type="radio"
-              name="subject"
-              value="Obraz1"
-              {...register('subject', {
-                required: { value: true, message: `Temat jest wymagany` }
-              })}
-            />
-            <Img src="https://cdn.sanity.io/images/9bg4j1zc/production/516553dfce1b86f9eabaa4cebc0fda17342c4255-1200x630.png?fit=max&w=1200&h=1200" width={1200} height={630} />
-          </label>
+          {paintings?.map(({ img, title }, i) => (
+            <label
+              key={i}
+              className={styles.painting}
+              aria-invalid={Boolean(errors['subject'])}
+              aria-label={title}
+              title={title}
+            >
+              <input
+                type="radio"
+                name="subject"
+                value={title}
+                {...register('subject', {
+                  required: { value: true, message: `Temat jest wymagany` }
+                })}
+              />
+              <Img
+                data={img}
+                sizes='100px'
+              />
+            </label>
+          ))}
           <Radio
             label="Mural"
             value="Mural"

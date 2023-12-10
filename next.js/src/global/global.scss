@@ -65,6 +65,7 @@ button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  user-select: none;
 }
 sup {
   font-size: .6em;

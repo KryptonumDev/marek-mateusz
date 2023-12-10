@@ -67,6 +67,9 @@ button {
   cursor: pointer;
   user-select: none;
 }
+::placeholder {
+  color: inherit;
+}
 sup {
   font-size: .6em;
   vertical-align: top;

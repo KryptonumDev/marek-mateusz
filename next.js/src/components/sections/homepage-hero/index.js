@@ -16,10 +16,11 @@ const Hero = ({
   heading,
   paragraph,
   cta,
-  paintings
+  paintings,
+  ...props
 }) => {
   return (
-    <section className={styles.wrapper} id='obrazy'>
+    <section className={styles.wrapper} {...props}>
       <header>
         <Markdown.h1>{heading}</Markdown.h1>
         <Markdown className={styles.paragraph}>{paragraph}</Markdown>

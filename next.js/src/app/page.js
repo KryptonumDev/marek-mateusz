@@ -35,6 +35,7 @@ const IndexPage = async () => {
           cta: hero_Cta,
           paintings,
         }}
+        id='obrazy'
       />
       <Callout {...callout} />
       <ShowcaseSlider

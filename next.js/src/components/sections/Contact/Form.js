@@ -67,6 +67,7 @@ const Form = ({
       <Input
         label="Telefon <em>(opcjonalnie)</em>"
         type="tel"
+        placeholder="_ _ _    _ _ _    _ _ _"
         register={register('phone', {
           pattern: { value: regex.phone, message: `Niepoprawny numer telefonu` },
         })}

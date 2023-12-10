@@ -91,13 +91,14 @@
         transform: translateY(-8px);
         .info {
           display: flex;
-          gap: clamp(4px, calc(8vw/7.68), 8px) clamp(12px, calc(20vw/7.68), 20px);
+          gap: 4px clamp(12px, calc(20vw/7.68), 20px);
           flex-wrap: wrap;
-          margin: clamp(4px, calc(8vw/7.68), 8px) 0;
+          margin-bottom: 4px;
           font-size: clamp(calc(14rem/16), calc(16vw/7.68), calc(16rem/16));
         }
         .title {
           font-size: clamp(calc(18rem/16), calc(24vw/7.68), calc(24rem/16));
+          line-height: 100%;
         }
       }
       &:nth-child(4n + 1) {

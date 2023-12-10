@@ -8,6 +8,21 @@
       margin: clamp(20px, calc(28vw/7.68), 28px) auto clamp(28px, calc(36vw/7.68), 36px);
     }
   }
+  position: relative;
+  .decoration {
+    position: absolute;
+    margin-left: calc(var(--pageMargin) * -1);
+    @media (min-width: 1280px){
+      margin-left: calc((100vw - 1200px) / -2);
+    }
+    left: 0;
+    top: 0;
+    transform: translateY(-70%);
+    @media (max-width: 799px){
+      transform: translateY(-85%);
+    }
+    width: clamp(92px, calc(158vw/7.68), 242px);
+  }
 
   // List
   min-width: 0;

@@ -6,6 +6,7 @@ import Contact from "@/components/sections/Contact";
 import Callout from "@/components/sections/Callout";
 import TextSection from "@/components/sections/TextSection";
 import Hero from "@/components/sections/homepage-hero";
+import ShowcaseSlider from "@/components/sections/ShowcaseSlider";
 
 const pathname = '';
 
@@ -16,6 +17,7 @@ const IndexPage = async () => {
     hero_Cta,
     paintings,
     callout,
+    murals,
     textSection,
     contactForm,
     faq,
@@ -24,7 +26,7 @@ const IndexPage = async () => {
   return (
     <>
       <Breadcrumbs data={[
-        { name: 'Homepage', path: pathname },
+        { name: 'Strona główna', path: pathname },
       ]} visible={false} />
       <Hero
         {...{
@@ -35,6 +37,7 @@ const IndexPage = async () => {
         }}
       />
       <Callout {...callout} />
+      <ShowcaseSlider {...murals} />
       <TextSection {...textSection} />
       <Contact {...contactForm} />
       <Faq data={faq} />
@@ -91,6 +94,36 @@ const query = async () => {
             theme
             text
             href
+          }
+        }
+
+        # Murals
+        murals {
+          heading
+          paragraph
+          cta {
+            theme
+            text
+            href
+          }
+          list {
+            img {
+              asset {
+                altText
+                url
+                metadata {
+                  lqip
+                  dimensions {
+                    width
+                    height
+                  }
+                }
+              }
+            }
+            year
+            type
+            title
+            availability
           }
         }
 

@@ -119,7 +119,7 @@
     }
     &:nth-child(10n + 9) {
       @media (min-width: 600px){
-        margin: 0 -60%;
+        margin: 0 -50%;
       }
       img {
         width: clamp(137px, calc(214vw/7.68), 381px);

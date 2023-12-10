@@ -1,0 +1,100 @@
+.wrapper {
+  header {
+    max-width: calc(794rem/16);
+    margin: 0 auto clamp(48px, calc(80vw/7.68), 96px);
+    text-align: center;
+    .paragraph {
+      max-width: calc(588rem/16);
+      margin: clamp(20px, calc(28vw/7.68), 28px) auto clamp(28px, calc(36vw/7.68), 36px);
+    }
+  }
+
+  // List
+  min-width: 0;
+  .slider {
+    margin: 0 calc(var(--pageMargin) * -1);
+    padding: 0 var(--pageMargin);
+    @media (min-width: 1280px) {
+      margin: 0 calc((100vw - 1200px) / -2);
+    }
+    .slider-wrapper {
+      display: flex;
+      gap: clamp(20px, calc(20vw/7.68), 32px);
+      align-items: center;
+      &:active {
+        .item {
+          transform: scale(.9);
+        }
+      }
+    }
+    .item {
+      transition: transform .8s var(--easing);
+      animation: slide 1.2s var(--easing) backwards;
+      @keyframes slide {
+        0% {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+      flex-shrink: 0;
+      img {
+        pointer-events: none;
+        display: block;
+        margin-bottom: clamp(12px, calc(20vw/7.68), 20px);
+        transition: transform .8s var(--easing);
+      }
+      &:not(:hover) {
+        img {
+          transform: translateY(8px);
+        }
+        .text {
+          opacity: 0;
+          transform: translateY(-8px);
+        }
+      }
+      .text {
+        transition: transform .8s var(--easing), opacity .8s var(--easing);
+        .info {
+          display: flex;
+          gap: clamp(4px, calc(8vw/7.68), 8px) clamp(12px, calc(20vw/7.68), 20px);
+          flex-wrap: wrap;
+          margin: clamp(4px, calc(8vw/7.68), 8px) 0;
+          font-size: clamp(calc(14rem/16), calc(16vw/7.68), calc(16rem/16));
+        }
+        .title {
+          font-size: clamp(calc(18rem/16), calc(24vw/7.68), calc(24rem/16));
+        }
+      }
+      &:nth-child(4n + 1) {
+        width: clamp(98px, calc(130vw/7.68), 173px);
+      }
+      &:nth-child(4n + 2) {
+        width: clamp(272px, calc(363vw/7.68), 484px);
+      }
+      &:nth-child(4n + 3) {
+        width: clamp(213px, calc(284vw/7.68), 381px);
+      }
+      &:nth-child(4n + 4) {
+        width: clamp(272px, calc(363vw/7.68), 484px);
+      }
+    }
+  }
+}
+
+.cursor {
+  @media (pointer: coarse) {
+    display: none;
+  }
+  pointer-events: none;
+  border-radius: 50%;
+  background-color: var(--secondary-600);
+  width: 64px;
+  height: 64px;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

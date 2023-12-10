@@ -3,10 +3,7 @@ import styles from './styles.module.scss';
 import Button from '@/components/atoms/Button';
 import Img from '@/components/atoms/Img';
 
-const speedMapping = [
-  .35, .15, .25, .5, .5, .15, .25, .5, .1, .25
-]
-
+const speedMapping = [ .35, .15, .25, .5, .5, .15, .25, .5, .1, .25 ];
 const sizes = (i) => (
   i % 10 === 0 || i % 10 === 2 || i % 10 === 6 || i % 10 === 8
   ? '(max-width: 768px) 214px, 381px'

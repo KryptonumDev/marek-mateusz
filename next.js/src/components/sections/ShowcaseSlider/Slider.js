@@ -1,5 +1,5 @@
 'use client';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import Img from '@/components/atoms/Img';
 import styles from './styles.module.scss';
 import { useEffect, useRef, useState } from 'react';
@@ -15,6 +15,7 @@ const sizes = (i) => (
 
 const Slider = ({ list }) => {
   const sliderWrapper = useRef(null);
+  const isInView = useInView(sliderWrapper, { once: true });
   const [sliderConstraint, setSliderConstraint] = useState(0);
 
   useEffect(() => {
@@ -36,15 +37,16 @@ const Slider = ({ list }) => {
     return () => window.removeEventListener("resize", calculateSliderConstraints);
   }, []);
 
-  const mouse = {
-    x: useSpring(useMotionValue(0), { damping: 50, stiffness: 600 }),
-    y: useSpring(useMotionValue(0), { damping: 50, stiffness: 600 }),
-  }
   const [ cursorScale, setCursorScale ] = useState(0);
+  const mouse = {
+    y: useSpring(useMotionValue(0), { damping: 80, stiffness: 600 }),
+    x: useSpring(useMotionValue(0), { damping: 80, stiffness: 600 }),
+  }
 
   return (
     <>
       <div
+        data-visible={isInView}
         className={styles.slider}
         onMouseMove={({ clientX, clientY }) => {
           const x = clientX - 32;
@@ -52,7 +54,13 @@ const Slider = ({ list }) => {
           mouse.x.set(x);
           mouse.y.set(y);
         }}
-        onMouseOver={() => setCursorScale(1)}
+        onMouseOver={({ clientX, clientY }) => {
+          const x = clientX - 32;
+          const y = clientY - 32;
+          mouse.x.set(x);
+          mouse.y.set(y);
+          setCursorScale(1)
+        }}
         onMouseOut={() => setCursorScale(0)}
         onMouseDown={() => setCursorScale(1.5)}
         onMouseUp={() => setCursorScale(1)}
@@ -73,10 +81,12 @@ const Slider = ({ list }) => {
               tabIndex={0}
               style={{ animationDelay: `${i * .15}s` }}
             >
-              <Img
-                data={img}
-                sizes={sizes(i)}
-              />
+              <div className={styles.img}>
+                <Img
+                  data={img}
+                  sizes={sizes(i)}
+                />
+              </div>
               <div className={styles.text}>
                 <div className={styles.info}>
                   <p>{year}</p>

@@ -12,7 +12,10 @@ const Cursor = ({ x, y, cursorScale }) => {
         y,
       }}
       initial={{ scale: 0 }}
-      animate={{ scale: cursorScale, rotate: cursorScale === 1.5 ? '45deg' : 0 }}
+      animate={{
+        scale: cursorScale,
+        rotate: cursorScale === 1.5 ? '45deg' : 0
+      }}
       exit={{ scale: 0 }}
       transition={{
         duration: .5,

@@ -37,8 +37,14 @@ const IndexPage = async () => {
         }}
       />
       <Callout {...callout} />
-      <ShowcaseSlider {...murals} />
-      <TextSection {...textSection} />
+      <ShowcaseSlider
+        {...murals}
+        id='murale'
+      />
+      <TextSection
+        {...textSection}
+        id='artysta'
+      />
       <Contact {...contactForm} />
       <Faq data={faq} />
     </>

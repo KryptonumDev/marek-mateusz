@@ -5,10 +5,11 @@ import Button from '@/components/atoms/Button';
 const TextSection = ({
   heading,
   paragraph,
-  cta
+  cta,
+  ...props
 }) => {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} {...props}>
       <header>
         <Markdown.h2>{heading}</Markdown.h2>
       </header>

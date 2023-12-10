@@ -1,5 +1,5 @@
 import React from "react"
-import NextImage from "next/image"
+import Image from "next/image"
 
 const defaultPlaceholder = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkcGqsBwACUQFEhuqmbQAAAABJRU5ErkJggg==";
 
@@ -11,7 +11,7 @@ const Img = ({
   height,
   ...props
 }) => (
-  <NextImage
+  <Image
     src={data?.asset.url || src}
     alt={data?.asset.altText || alt}
     width={data?.asset.metadata?.dimensions?.width || data?.asset.metadata?.width || width}

@@ -19,7 +19,7 @@ const Hero = ({
   paintings
 }) => {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} id='obrazy'>
       <header>
         <Markdown.h1>{heading}</Markdown.h1>
         <Markdown className={styles.paragraph}>{paragraph}</Markdown>

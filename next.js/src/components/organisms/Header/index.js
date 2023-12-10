@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import styles from './styles.module.scss';
 
@@ -23,6 +24,7 @@ const links = [
 ]
 
 const Header = ({ socials }) => {
+  const pathname = usePathname();
   const [navOpened, setNavOpened] = useState(false);
 
   const handleEscapeKey = (e) => {
@@ -57,8 +59,13 @@ const Header = ({ socials }) => {
               {links.map(({ name, href }, i) => (
                 <li key={i}>
                   <Link
-                    href={href}
                     onClick={() => setNavOpened(false)}
+                    href={href}
+                    {...(pathname === '/' && {
+                      href: href.replace(/^\//, ''),
+                      'data-scroll-to': true,
+                      'data-scroll-to-offset': -123,
+                    })}
                   >
                     <span aria-hidden={true}>{name}</span>
                     <span>{name}</span>

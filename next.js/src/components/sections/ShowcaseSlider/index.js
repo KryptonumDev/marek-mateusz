@@ -8,9 +8,10 @@ const ShowcaseSlider = ({
   paragraph,
   cta,
   list,
+  ...props
 }) => {
   return (
-    <section className={styles.wrapper}>
+    <section className={styles.wrapper} {...props}>
       <header>
         <Markdown.h1>{heading}</Markdown.h1>
         <Markdown className={styles.paragraph}>{paragraph}</Markdown>

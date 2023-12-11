@@ -124,7 +124,7 @@ body {
     overflow: hidden;
     touch-action: none;
   }
-  overflow: hidden;
+  overflow: clip;
   min-width: 320px;
   -webkit-tap-highlight-color: transparent;
   background-color: var(--primary-900);

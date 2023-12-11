@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import styles from './styles.module.scss';
@@ -28,16 +28,54 @@ const Header = ({ socials }) => {
   const pathname = usePathname();
   const [navOpened, setNavOpened] = useState(false);
 
-  const handleEscapeKey = (e) => {
-    if (e.key === "Escape") {
-      setNavOpened(false);
-    }
-  }
+  const header = useRef(null);
+  const logo = useRef(null);
+  const offset = 50;
+  
   useEffect(() => {
+    if (navOpened) {
+      logo.current.setAttribute('data-hide', false);
+    }
+  }, [navOpened])
+  
+  useEffect(() => {
+    const handleEscapeKey = (e) => {
+      if (e.key === "Escape") {
+        setNavOpened(false);
+      }
+    };
+    
+    let prevScrollPos = 0;
+    let scrollDistance = 0;
+    const handleScroll = () => {
+      const { scrollY } = window;
+      const headerExpanded = logo.current.closest('header').getAttribute('aria-expanded') == 'true';
+      if (!headerExpanded) {
+        if (scrollY < prevScrollPos) {
+          scrollDistance += prevScrollPos - scrollY;
+          if (scrollDistance >= offset) {
+            logo.current.setAttribute('data-hide', false);
+            scrollDistance = 0;
+          }
+        } else {
+          logo.current.setAttribute('data-hide', true);
+          scrollDistance = 0;
+        }
+        prevScrollPos = scrollY;
+        if (scrollY <= offset) {
+          logo.current.setAttribute('data-hide', false);
+        }
+      } else {
+        logo.current.setAttribute('data-hide', false);
+      }
+    };
+
     document.addEventListener('keydown', handleEscapeKey);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
       document.removeEventListener('keydown', handleEscapeKey);
-    }
+      window.removeEventListener('scroll', handleScroll, { passive: true });
+    };
   }, []);
 
   return (
@@ -46,12 +84,14 @@ const Header = ({ socials }) => {
       <header
         className={styles.wrapper}
         aria-expanded={navOpened}
+        ref={header}
       >
         <div className="max-width">
           <Link
             href='/'
             className={styles.logo}
             aria-label="Strona główna"
+            ref={logo}
           >
             <Logo />
           </Link>

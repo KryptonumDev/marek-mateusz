@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import styles from './styles.module.scss';
+import Curve from './Curve';
 
 const links = [
   {
@@ -90,6 +91,7 @@ const Header = ({ socials }) => {
                 ))}
               </ul>
             )}
+            <Curve open={navOpened} />
           </nav>
           <button
             className={styles.mobileNavToggle}

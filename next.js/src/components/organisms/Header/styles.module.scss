@@ -72,13 +72,16 @@
       margin: 0 -21px;
       background-color: rgba(29,30,29,.8);
       backdrop-filter: blur(8px);
+      .curve {
+        display: none;
+      }
     }
   }
   @media (max-width: 899px){
     nav {
-      transform: translateX(100%);
+      transform: translateX(calc(100% + 100px));
       transition: transform .8s var(--easing);
-      padding: 0 var(--pageMargin);
+      padding: 0 calc(var(--pageMargin) * 2);
       position: absolute;
       right: 0;
       top: calc(clamp(18px, calc(28vw/7.68), 28px) * -1);
@@ -106,6 +109,14 @@
             }
           }
         }
+      }
+      .curve {
+        position: absolute;
+        top: 0;
+        left: -99px;
+        width: 100px;
+        height: 100%;
+        fill: var(--primary-700);
       }
     }
     &[aria-expanded='true']{

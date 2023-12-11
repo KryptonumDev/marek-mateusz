@@ -130,7 +130,6 @@ const query = async () => {
             year
             type
             title
-            availability
           }
         }
 
@@ -149,6 +148,41 @@ const query = async () => {
         contactForm {
           heading
           paragraph
+          works {
+            __typename
+            ... on Mural {
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      width
+                      height
+                    }
+                  }
+                }
+              }
+              title
+            }
+            ... on Painting {
+              img {
+                asset {
+                  altText
+                  url
+                  metadata {
+                    lqip
+                    dimensions {
+                      width
+                      height
+                    }
+                  }
+                }
+              }
+              title
+            }
+          }
         }
         # Faq
         faq {

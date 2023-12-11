@@ -16,7 +16,7 @@ import Error from '@/components/atoms/Error';
 const Form = ({
   socials,
   phone,
-  paintings
+  works
 }) => {
   const [status, setStatus] = useState({ sending: false });
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: 'all' });
@@ -77,7 +77,7 @@ const Form = ({
       <div className={styles.topic}>
         <p>Wskaż temat wiadomości</p>
         <div>
-          {paintings?.map(({ img, title }, i) => (
+          {works?.map(({ img, title }, i) => (
             <label
               key={i}
               className={styles.painting}

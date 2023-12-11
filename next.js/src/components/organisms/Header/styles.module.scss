@@ -84,7 +84,7 @@
     nav {
       transform: translateX(calc(100% + 100px));
       transition: transform .8s var(--easing);
-      padding: 0 calc(var(--pageMargin) * 2);
+      padding: 0 var(--pageMargin) 0 calc(var(--pageMargin) * 2);
       position: absolute;
       right: 0;
       top: calc(clamp(18px, calc(28vw/7.68), 28px) * -1);

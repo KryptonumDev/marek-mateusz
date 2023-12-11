@@ -28,14 +28,23 @@ export default {
     {
       name: 'paintings',
       type: 'array',
+      options: {
+        layout: 'grid'
+      },
       of: [
         {
-          type: 'Painting'
+          type: 'reference',
+          to: {
+            type: 'painting'
+          },
+          options: {
+            disableNew: true,
+          },
         }
       ],
       title: 'Galeria',
       fieldset: 'hero',
-      validation: Rule => Rule.required(),
+      validation: Rule => Rule.required().unique(),
     },
     {
       name: 'callout',

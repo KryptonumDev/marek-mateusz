@@ -17,6 +17,27 @@ export default {
       title: 'Paragraf',
       validation: Rule => Rule.required()
     },
+    {
+      name: 'works',
+      type: 'array',
+      options: {
+        layout: 'grid'
+      },
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'painting' },
+            { type: 'mural' },
+          ],
+          options: {
+            disableNew: true,
+          },
+        }
+      ],
+      title: 'Prace',
+      validation: Rule => Rule.required().unique(),
+    },
   ],
   preview: {
     select: {

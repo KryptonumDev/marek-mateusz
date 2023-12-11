@@ -26,13 +26,22 @@ export default {
     {
       name: 'list',
       type: 'array',
+      options: {
+        layout: 'grid'
+      },
       of: [
         {
-          type: 'Painting'
+          type: 'reference',
+          to: {
+            type: 'mural'
+          },
+          options: {
+            disableNew: true,
+          },
         }
       ],
       title: 'Lista',
-      validation: Rule => Rule.required()
+      validation: Rule => Rule.required().unique(),
     },
   ],
   preview: {

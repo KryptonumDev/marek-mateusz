@@ -1,7 +1,8 @@
 export default {
-  name: "Painting",
-  title: "Element w Galerii",
-  type: "object",
+  name: "mural",
+  title: "Murale",
+  type: "document",
+  icon: () => '🏠',
   fields: [
     {
       name: 'img',
@@ -27,24 +28,18 @@ export default {
       title: 'Tytuł',
       validation: Rule => Rule.required()
     },
-    {
-      name: 'availability',
-      type: 'boolean',
-      title: 'Dostępny?',
-    },
   ],
   preview: {
     select: {
       title: 'title',
       year: 'year',
       type: 'type',
-      availability: 'availability',
       img: 'img'
     },
-    prepare({ title, year, type, availability, img }) {
+    prepare({ title, year, type, img }) {
       return {
         title: title,
-        subtitle: `${year} | ${type} | ${availability ? 'Dostępny' : 'Niedostępny'}`,
+        subtitle: `${year} | ${type}`,
         media: img
       }
     }

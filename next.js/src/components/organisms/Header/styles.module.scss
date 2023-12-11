@@ -13,8 +13,7 @@
     background-color: rgba(29,30,29,.8);
     backdrop-filter: blur(8px);
     &[data-hide="true"] {
-      transform: translateY(calc(-100% - clamp(18px, calc(28vw/7.68), 28px)));
-    }
+      transform: translateY(calc(-100% - clamp(18px, calc(28vw/7.68), 28px)));    }
     transition: transform .8s var(--easing);
     svg {
       width: clamp(118px, calc(141vw/7.68), 141px);

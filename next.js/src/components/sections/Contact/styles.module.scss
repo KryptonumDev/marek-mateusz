@@ -11,9 +11,9 @@
   .decoration1,
   .decoration2 {
     position: absolute;
-    width: clamp(130px, calc(160vw/7.68), 320px);
   }
   .decoration1 {
+    width: clamp(130px, calc(160vw/7.68), 380px);
     left: 0;
     bottom: 0;
     margin-left: calc(var(--pageMargin) * -1);
@@ -21,10 +21,11 @@
       margin-left: calc((100vw - 1200px) / -2);
     }
     @media (max-width: 899px){
-      transform: translateY(110%);
+      transform: translate(-35%, 110%);
     }
   }
   .decoration2 {
+    width: clamp(90px, calc(160vw/7.68), 380px);
     right: 0;
     top: 0;
     margin-right: calc(var(--pageMargin) * -1);
@@ -32,7 +33,7 @@
       margin-right: calc((100vw - 1200px) / -2);
     }
     @media (max-width: 899px){
-      transform: translateY(-100%);
+      transform: translateY(-90%);
     }
   }
 }

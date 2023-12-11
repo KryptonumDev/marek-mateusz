@@ -1,3 +1,4 @@
+import Element from './Element';
 import styles from './styles.module.scss';
 import Link from 'next/link';
 
@@ -20,10 +21,11 @@ const Button = ({
     ...props,
   };
   const isExternal = href && (href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:'));
-  const Element = href ? isExternal ? 'a' : Link : 'button';
+  const As = href ? isExternal ? 'a' : Link : 'button';
 
   return (
     <Element
+      As={As}
       {...href && {
         href,
         ...isExternal && { target: '_blank', rel: 'noopener' }

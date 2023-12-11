@@ -139,6 +139,11 @@ main,
   margin: 0 auto;
   height: 100%;
 }
+main {
+  display: grid;
+  row-gap: clamp(144px, calc(180vw/7.68), 240px);
+  margin: clamp(48px, calc(80vw/7.68), 80px) auto clamp(144px, calc(180vw/7.68), 240px);
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--cinzel-decorative);
   font-weight: 400;
@@ -225,12 +230,6 @@ p {
   @media (max-width: 499px) {
     width: 100%;
   }
-}
-
-main {
-  display: grid;
-  row-gap: clamp(144px, calc(180vw/7.68), 240px);
-  margin: clamp(48px, calc(80vw/7.68), 80px) auto clamp(144px, calc(180vw/7.68), 240px);
 }
 
 html.lenis {

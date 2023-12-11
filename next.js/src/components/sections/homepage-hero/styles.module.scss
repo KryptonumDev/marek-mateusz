@@ -1,4 +1,5 @@
 .wrapper {
+  margin-bottom: calc(clamp(144px, calc(180vw/7.68), 240px) * -.5);
   header {
     max-width: calc(794rem/16);
     margin: 0 auto;

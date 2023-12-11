@@ -9,6 +9,8 @@
   padding: 11px 80px;
   text-align: center;
   z-index: 2;
+  background-color: rgba(29,30,29,.8);
+  backdrop-filter: blur(3px);
   @media (max-width: 499px) {
     padding: 11px 24px;
     width: 100%;

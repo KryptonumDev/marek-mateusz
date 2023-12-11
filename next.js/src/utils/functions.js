@@ -125,6 +125,7 @@ export const phoneValidation = (e) => {
     e.key === 'Enter' ||
     e.key === 'Tab'
   ) return
+  
   const allowedCharactersPattern = /[0-9()_+\-\s]/;
   !allowedCharactersPattern.test(e.key) && e.preventDefault()
 }

@@ -1,5 +1,7 @@
 .wrapper {
-  margin-bottom: clamp(68px, calc(72vw/7.68), 78px);
+  padding: clamp(34px, calc(36vw/7.68), 39px) 0 clamp(68px, calc(72vw/7.68), 78px);
+  background-color: rgba(29,30,29,.8);
+  backdrop-filter: blur(3px);
   > div {
     display: flex;
     align-items: center;

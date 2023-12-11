@@ -6,5 +6,9 @@ export default function sitemap() {
       url: `${domain}`,
       lastModified: new Date(),
     },
+    {
+      url: `${domain}/polityka-prywatnosci`,
+      lastModified: new Date(),
+    },
   ]
 }

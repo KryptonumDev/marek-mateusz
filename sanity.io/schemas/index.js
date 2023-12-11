@@ -1,9 +1,11 @@
 // Single Types
 import global, { global_Seo } from './singleTypes/global'
 import IndexPage from './singleTypes/indexPage'
+import NotFoundPage from './singleTypes/NotFoundPage'
 
 export const singleTypes = [
   IndexPage,
+  NotFoundPage,
 ]
 
 // Collection Types

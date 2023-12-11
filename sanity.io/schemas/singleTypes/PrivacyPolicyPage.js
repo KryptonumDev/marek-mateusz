@@ -1,8 +1,8 @@
 export default {
-  name: 'NotFoundPage',
-  title: 'Strona 404',
+  name: 'PrivacyPolicyPage',
+  title: 'Polityka prywatności',
   type: 'document',
-  icon: () => '🔍',
+  icon: () => '📑',
   fields: [
     {
       name: 'hero_Heading',
@@ -19,23 +19,16 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'hero_Cta',
-      type: 'cta',
-      title: 'CTA',
-      fieldset: 'hero',
-      validation: Rule => Rule.required(),
-    },
-    {
-      name: 'images',
+      name: 'content',
       type: 'array',
       of: [
         {
-          type: 'image'
+          type: 'list_TitleAndDescription'
         }
       ],
-      title: 'Galeria',
+      title: 'Treść',
       fieldset: 'hero',
-      validation: Rule => Rule.required().min(6).max(6),
+      validation: Rule => Rule.required(),
     },
     {
       name: 'seo',

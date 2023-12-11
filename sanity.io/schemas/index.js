@@ -1,10 +1,12 @@
 // Single Types
 import global, { global_Seo } from './singleTypes/global'
-import IndexPage from './singleTypes/indexPage'
+import IndexPage from './singleTypes/IndexPage'
+import PrivacyPolicyPage from './singleTypes/PrivacyPolicyPage'
 import NotFoundPage from './singleTypes/NotFoundPage'
 
 export const singleTypes = [
   IndexPage,
+  PrivacyPolicyPage,
   NotFoundPage,
 ]
 

@@ -1,6 +1,6 @@
 export default {
   name: 'global',
-  title: 'Global',
+  title: 'Globalne',
   type: 'document',
   icon: () => '🌍',
   fields: [

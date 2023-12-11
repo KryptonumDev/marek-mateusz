@@ -114,7 +114,7 @@ img {
 }
 html,
 body {
-  overflow: clip;
+  overflow-x: clip;
 }
 html {
   scroll-padding-top: 123px;
@@ -124,6 +124,7 @@ body {
     overflow: hidden;
     touch-action: none;
   }
+  overflow: hidden;
   min-width: 320px;
   -webkit-tap-highlight-color: transparent;
   background-color: var(--primary-900);

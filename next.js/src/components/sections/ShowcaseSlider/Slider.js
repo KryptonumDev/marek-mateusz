@@ -99,7 +99,7 @@ const Slider = ({ list }) => {
               key={i}
               tabIndex={0}
               style={{ animationDelay: `${i * .15}s` }}
-              onClick={(e) => handleExpand(e)}
+              onPointerDown={(e) => handleExpand(e)}
             >
               <div className={styles.img}>
                 <Img

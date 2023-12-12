@@ -48,10 +48,8 @@
     }
   }
   &:has(input:focus-visible) {
-    .indicator {
-      outline: 1px solid var(--secondary-900);
-      outline-offset: 5px;
-    }
+    outline: 1px solid var(--secondary-900);
+    outline-offset: 5px;
   }
   &[aria-invalid="true"]{
     border-color: var(--error-400);

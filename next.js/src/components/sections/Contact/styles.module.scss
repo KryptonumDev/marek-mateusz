@@ -70,6 +70,10 @@
         &:has(input:checked){
           border-color: var(--secondary-500);
         }
+        &:has(input:focus-visible){
+          outline: 1px solid var(--secondary-900);
+          outline-offset: 5px;
+        }
         &:hover {
           border-color: var(--secondary-800);
         }

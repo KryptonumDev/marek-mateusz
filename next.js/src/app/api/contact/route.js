@@ -18,7 +18,7 @@ const headers = {
 
 export async function POST(request) {
   const req = await request.json();
-  const { name='', email='', phone='', subject='', message, legal=false } = req;
+  const { name='', email='', phone='', subject='', message='', legal=false } = req;
 
   if ((name.trim().length < 3 || !regex.email.test(email.toLowerCase()) || (phone && !regex.phone.test(phone)) || !legal)) {
     return NextResponse.json({ success: false }, { status: 422, headers })

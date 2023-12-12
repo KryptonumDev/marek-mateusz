@@ -1,14 +1,15 @@
 import { domain } from '../global/Seo';
 
+const staticPages = [
+  '',
+  '/polityka-prywatnosci'
+]
+
 export default function sitemap() {
-  return [
-    {
-      url: `${domain}`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${domain}/polityka-prywatnosci`,
-      lastModified: new Date(),
-    },
-  ]
+  const currentDate = new Date();
+  const sitemap = staticPages.map(route => ({
+    url: `${domain}${route}`,
+    lastModified: currentDate,
+  }));
+  return sitemap;
 }

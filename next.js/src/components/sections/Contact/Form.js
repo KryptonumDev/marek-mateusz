@@ -1,10 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Checkbox from '@/components/atoms/Checkbox';
 import styles from './styles.module.scss';
 import Input from '@/components/atoms/Input';
-import { regex } from '@/global/constants';
+import { easing, regex } from '@/global/constants';
 import Link from 'next/link';
 import Button from '@/components/atoms/Button';
 import Loader from '@/components/atoms/Loader';
@@ -12,6 +12,7 @@ import { phoneValidation } from '@/utils/functions';
 import Radio from '@/components/atoms/Radio';
 import Img from '@/components/atoms/Img';
 import Error from '@/components/atoms/Error';
+import { motion } from 'framer-motion';
 
 const Form = ({
   socials,
@@ -20,11 +21,18 @@ const Form = ({
 }) => {
   const [status, setStatus] = useState({ sending: false });
   const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: 'all' });
+  const state = useRef(null);
 
+  useEffect(() => {
+    if(status.success !== undefined) {
+      state.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [status.success])
+  
   const onSubmit = async (data) => {
     setStatus({ sending: true });
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contct', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
@@ -42,9 +50,16 @@ const Form = ({
   };
 
   return (
-    <form
+    <motion.form
       className={styles.form}
       onSubmit={handleSubmit(onSubmit)}
+      initial={{ height: 'auto' }}
+      animate={{ height: status.success !== undefined ? state.current?.offsetHeight : 'auto' }}
+      exit={{ height: 'auto' }}
+      transition={{
+        duration: .8,
+        ease: easing,
+      }}
     >
       <Input
         label="Imię i nazwisko"
@@ -148,44 +163,47 @@ const Form = ({
         )}
         Wyślij wiadomość
       </Button>
-      {status.success !== undefined && (
-        <div className={styles.state} aria-invalid={!status.success}>
-          {status.success ? <Status.Success /> : <Status.Error />}
-          <h3 className='h2'>{status.success ? "DZIĘKUJEMY!" : "WYSTĄPIŁ PROBLEM"}</h3>
-          <p className={styles.paragraph}>{
-            status.success
-            ? "Właśnie dotarła do nas Twoja wiadomość. Postaramy się jak najszybciej na nią odpowiedzieć. W między czasie zapraszamy Cię do śledzenia nas na social media."
-            : "Napotkaliśmy drobne problemy podczas przesyłania formularza. Spróbuj wysłać go ponownie, a w razie problemów skontaktuj się z nami poprzez numer telefonu."
-          }</p>
-          {status.success ? (
-            socials.length > 0 && (
-              <ul className={styles.socials}>
-                {socials.map(({ name, url, icon }, i) => (
-                  <li key={i}>
-                    <a
-                      href={url}
-                      target='_blank'
-                      rel="noopener"
-                      aria-label={name}
-                    >
-                      {icon}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )
-          ) : (
-            <>
-              <Button
-                type="button"
-                onClick={() => setStatus({ sending: false, success: undefined })}
-              >Spróbuj ponownie</Button>
-              {phone}
-            </>
-          )}
-        </div>
-      )}
-    </form>
+      <div
+        aria-hidden={status.success === undefined}
+        className={styles.state}
+        aria-invalid={!status.success}
+        ref={state}
+      >
+        {status.success ? <Status.Success /> : <Status.Error />}
+        <h3 className='h2'>{status.success ? "DZIĘKUJEMY!" : "WYSTĄPIŁ PROBLEM"}</h3>
+        <p className={styles.paragraph}>{
+          status.success
+          ? "Właśnie dotarła do nas Twoja wiadomość. Postaramy się jak najszybciej na nią odpowiedzieć. W między czasie zapraszamy Cię do śledzenia nas na social media."
+          : "Napotkaliśmy drobne problemy podczas przesyłania formularza. Spróbuj wysłać go ponownie, a w razie problemów skontaktuj się z nami poprzez numer telefonu."
+        }</p>
+        {status.success ? (
+          socials.length > 0 && (
+            <ul className={styles.socials}>
+              {socials.map(({ name, url, icon }, i) => (
+                <li key={i}>
+                  <a
+                    href={url}
+                    target='_blank'
+                    rel="noopener"
+                    aria-label={name}
+                  >
+                    {icon}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        ) : (
+          <>
+            <Button
+              type="button"
+              onClick={() => setStatus({ sending: false, success: undefined })}
+            >Spróbuj ponownie</Button>
+            {phone}
+          </>
+        )}
+      </div>
+    </motion.form>
   );
 };
 

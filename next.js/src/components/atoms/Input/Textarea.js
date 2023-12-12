@@ -4,6 +4,7 @@ import { forwardRef } from 'react';
 const Textarea = forwardRef((props, ref) => {
   const handleExpand = (e) => {
     const textarea = e.target;
+    textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
   }
 

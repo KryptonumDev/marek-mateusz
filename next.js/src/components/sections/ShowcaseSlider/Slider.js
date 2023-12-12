@@ -4,6 +4,7 @@ import Img from '@/components/atoms/Img';
 import styles from './styles.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import Cursor from './Cursor';
+import { easing } from '@/global/constants';
 
 const sizes = (i) => (
   i % 4 === 1 || i % 4 === 3
@@ -17,6 +18,8 @@ const Slider = ({ list }) => {
   const sliderWrapper = useRef(null);
   const isInView = useInView(sliderWrapper, { once: true });
   const [sliderConstraint, setSliderConstraint] = useState(0);
+  const [x, setX] = useState(0);
+  const [cursorScale, setCursorScale] = useState(0);
 
   useEffect(() => {
     const calculateSliderConstraints = () => {
@@ -37,10 +40,21 @@ const Slider = ({ list }) => {
     return () => window.removeEventListener("resize", calculateSliderConstraints);
   }, []);
 
-  const [ cursorScale, setCursorScale ] = useState(0);
   const mouse = {
     y: useSpring(useMotionValue(0), { damping: 80, stiffness: 600 }),
     x: useSpring(useMotionValue(0), { damping: 80, stiffness: 600 }),
+  }
+
+  const handleExpand = (e) => {
+    const el = window.getComputedStyle(sliderWrapper.current);
+    const translateX = new WebKitCSSMatrix(el.transform).m41;
+    const { left, width} = e.target.getBoundingClientRect();
+    const centerX = window.innerWidth / 2;
+    const elementCenter = left + width / 2;
+    const pxToCenter = centerX - elementCenter;
+    let translate = translateX + pxToCenter;
+    translate = translate >= 0 ? 0 : translate <= sliderConstraint ? sliderConstraint : translate;
+    setX(translate);
   }
 
   return (
@@ -73,6 +87,11 @@ const Slider = ({ list }) => {
             right: 0,
             left: sliderConstraint
           }}
+          animate={{ x: x }}
+          transition={{
+            duration: .8,
+            ease: easing,
+          }}
         >
           {list.map(({ img, year, type, title }, i) => (
             <div
@@ -80,6 +99,7 @@ const Slider = ({ list }) => {
               key={i}
               tabIndex={0}
               style={{ animationDelay: `${i * .15}s` }}
+              onClick={(e) => handleExpand(e)}
             >
               <div className={styles.img}>
                 <Img

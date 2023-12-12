@@ -32,7 +32,7 @@ const Form = ({
   const onSubmit = async (data) => {
     setStatus({ sending: true });
     try {
-      const response = await fetch('/api/contct', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

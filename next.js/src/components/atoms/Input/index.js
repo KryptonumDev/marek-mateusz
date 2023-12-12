@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import Error from '../Error';
+import Textarea from './Textarea';
 
 const Input = ({
   register,
@@ -15,8 +16,7 @@ const Input = ({
     >
       <p dangerouslySetInnerHTML={{ __html: label}} />
       {textarea ? (
-        <textarea
-          data-lenis-prevent
+        <Textarea
           rows={2}
           {...register}
           name={register.name}

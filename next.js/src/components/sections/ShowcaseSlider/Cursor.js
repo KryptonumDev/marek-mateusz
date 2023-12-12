@@ -7,10 +7,7 @@ const Cursor = ({ x, y, cursorScale }) => {
   return (
     <motion.div
       className={styles.cursor}
-      style={{
-        x,
-        y,
-      }}
+      style={{ x, y }}
       initial={{ scale: 0 }}
       animate={{ scale: cursorScale }}
       exit={{ scale: 0 }}

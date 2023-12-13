@@ -32,6 +32,12 @@ export default {
       type: 'global_Seo',
       title: 'Global SEO',
     },
+    {
+      name: 'robotsIndex',
+      type: 'boolean',
+      title: 'Indeksowanie przez roboty SEO',
+      description: 'Jeśli włączone roboty SEO (np. Google) będą mogły zaindeksować stronę w wyszukiwarkach.'
+    },
   ],
   fieldsets: [
     {

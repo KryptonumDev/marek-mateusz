@@ -19,8 +19,10 @@ const Seo = async ({ title, description, path, ...props }) => {
   }
 
   const metadata = {
-    robots: {
-      index: robotsIndex || true,
+    ...!robotsIndex && {
+      robots: {
+        index: false,
+      },
     },
     metadataBase: new URL(domain),
     title: seo.title,

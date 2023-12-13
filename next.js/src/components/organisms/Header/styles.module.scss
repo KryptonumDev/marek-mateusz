@@ -2,12 +2,14 @@
   position: sticky;
   z-index: 9;
   top: clamp(18px, calc(28vw/7.68), 28px);
+  pointer-events: none;
   > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
   .logo {
+    pointer-events: auto;
     padding: 8px 13px;
     margin: 0 -13px;
     background-color: rgba(29,30,29,.8);
@@ -22,6 +24,7 @@
   nav {
     display: flex;
     gap: 48px;
+    pointer-events: auto;
     .links {
       list-style-type: none;
       display: flex;
@@ -144,6 +147,7 @@
     }
   }
   .mobileNavToggle {
+    pointer-events: auto;
     display: grid;
     gap: 12px;
     padding: 17px 13px;

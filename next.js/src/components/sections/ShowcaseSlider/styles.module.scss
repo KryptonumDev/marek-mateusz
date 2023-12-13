@@ -59,7 +59,6 @@
       }
     }
     .item {
-      max-height: calc(100vh - 121px);
       transition: transform .8s var(--easing);
       flex-shrink: 0;
       display: flex;

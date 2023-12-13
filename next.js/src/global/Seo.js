@@ -4,18 +4,23 @@ export const domain = 'https://marekmateusz.gallery';
 export const locale = "pl";
 
 const Seo = async ({ title, description, path, ...props }) => {
-  const { global } = await query();
+  const { global: {
+    robotsIndex,
+    seo: {
+      og_Img
+    }
+  }} = await query();
 
   const seo = {
     title: title || 'Marek Mateusz',
     description: description || '',
     url: `${domain}${path}` || '',
-    ogImage: global.seo?.og_Img.asset.url || ''
+    ogImage: og_Img?.asset?.url || ''
   }
 
   const metadata = {
     robots: {
-      index: false,
+      index: robotsIndex || true,
     },
     metadataBase: new URL(domain),
     title: seo.title,
@@ -57,6 +62,7 @@ const query = async () => {
             }
           }
         }
+        robotsIndex
       }
     }
   `)

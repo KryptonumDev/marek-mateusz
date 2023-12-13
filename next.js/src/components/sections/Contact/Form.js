@@ -20,7 +20,7 @@ const Form = ({
   works
 }) => {
   const [status, setStatus] = useState({ sending: false });
-  const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: 'all' });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm({ mode: 'onTouched' });
   const state = useRef(null);
 
   useEffect(() => {

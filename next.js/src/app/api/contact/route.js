@@ -8,7 +8,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 const emailData = {
   from: 'Marek Mateusz <kontakt@marekmateusz.gallery>',
-  to: 'bogumil@kryptonum.eu',
+  to: 'kontakt@marekmateusz.gallery',
 }
 
 const headers = {
